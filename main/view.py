@@ -18,4 +18,16 @@ else:
             descricao = str(input('Digite a despesa\n'))
             valor = float(input('Digite o valor da despesa\n'))
             controller.adicionar_despesa(descricao,valor)
-            
+
+        elif op==2:
+            pass
+
+        elif op==3:
+            pass
+        
+        elif op==4:
+            arquivo = controller.visualizar_despesas()
+            for i in arquivo:
+                for c,v in i.items():
+                    print(f"{c} - {v}")
+                    

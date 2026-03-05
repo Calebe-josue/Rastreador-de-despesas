@@ -24,3 +24,5 @@ def adicionar_despesa(descricao,valor):
     arq.escrever_arq(arquivo)
 
 
+def visualizar_despesas():
+    return arq.abrir_arquivo()
