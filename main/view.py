@@ -1,6 +1,6 @@
 import controller
 
-menu = ["Adicionar despesa","Atualizar despesa","Excluir despesa","Visualizar todas as despesas","Resumo de todas as despesas","Visualizar resumo das despesas de um mês específico"]
+menu = ["Adicionar despesa","Atualizar despesa","Excluir despesa","Visualizar todas as despesas","Resumo de todas as despesas",]
 
 for i,v in enumerate(menu,start=1):
     print(f'{i} - {v}')
@@ -15,7 +15,7 @@ else:
         print('opção inválida')
     else:
         if op==1:
-            descricao = str(input('Digite a despesa'))
-            valor = float(input('Digite o valor da despesa'))
+            descricao = str(input('Digite a despesa\n'))
+            valor = float(input('Digite o valor da despesa\n'))
             controller.adicionar_despesa(descricao,valor)
             
