@@ -1,5 +1,6 @@
 import controller
 
+
 menu = ["Adicionar despesa","Atualizar despesa","Excluir despesa","Visualizar todas as despesas","Resumo de todas as despesas",]
 
 for i,v in enumerate(menu,start=1):
@@ -23,11 +24,18 @@ else:
             pass
 
         elif op==3:
-            pass
-        
-        elif op==4:
-            arquivo = controller.visualizar_despesas()
-            for i in arquivo:
-                for c,v in i.items():
-                    print(f"{c} - {v}")
+            try:
+                estado = controller.visualizar_despesas()
+                if estado==True:
+                    op = int(input('Digite o id da despesa que deseja remover\n'))
+                else:
                     
+            except (KeyboardInterrupt,ValueError,IndexError):
+                print('Erro, id inválido')
+            else:
+                print(controller.remover_despesa(op))
+        elif op==4:
+            controller.visualizar_despesas()
+    
+        elif op==5:
+            pass            

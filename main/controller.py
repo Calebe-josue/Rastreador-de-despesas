@@ -1,6 +1,7 @@
 import model
 
 arq = model.Arquivo('despesas.json')
+
 def pegar_id(arq):
     if not arq:
         return 1
@@ -25,4 +26,18 @@ def adicionar_despesa(descricao,valor):
 
 
 def visualizar_despesas():
-    return arq.abrir_arquivo()
+    arquivo = arq.abrir_arquivo()
+    if not arquivo:
+        print('Sem despesas cadastradas!')
+        return False
+    for i in arquivo:
+        print(f"{i["id"]} - {i["despesa"]} = R${i["valor"]} ")
+    return True
+                        
+
+def remover_despesa(id):
+    arquivo = arq.abrir_arquivo()
+    if id>len(arquivo) or id<1:
+        return "Id inválido"
+    else:
+        pass
