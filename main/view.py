@@ -1,7 +1,8 @@
 import controller
 
+# Interface para o usuário (CLI).
 
-menu = ["Adicionar despesa","Atualizar despesa","Excluir despesa","Visualizar todas as despesas","Resumo de todas as despesas",]
+menu = ["Adicionar despesa","Atualizar despesa","Excluir despesa","Visualizar todas as despesas","Resumo de todas as despesas",] # Opções do MENU.
 
 for i,v in enumerate(menu,start=1):
     print(f'{i} - {v}')
