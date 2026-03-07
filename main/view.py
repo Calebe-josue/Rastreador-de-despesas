@@ -21,8 +21,20 @@ else:
             controller.adicionar_despesa(descricao,valor)
 
         elif op==2:
-            pass
-
+            if controller.visualizar_despesas():
+                try:
+                    op = int(input('Digite o id da despesa que deseja editar\n'))
+                except:
+                    print("ID inválido!")
+                else:
+                    despesa=str(input('Digite a despesa editada\n'))
+                    try:
+                        valor = float(input('Digite o valor da despesa editada\n'))
+                    except (ValueError,KeyboardInterrupt):
+                        print('Valor inválido!')
+                    else:
+                        controller.editar_despesa(op,despesa,valor)
+            
         elif op==3:
             if controller.visualizar_despesas():
                 try:
@@ -34,12 +46,12 @@ else:
                         print('Despesa removida com sucesso!')
                     else:
                         print('ID inválido')
-            else:
-                print('Sem despesas cadastradas!')
             
-
         elif op==4:
-            controller.visualizar_despesas()
-    
+                controller.visualizar_despesas()
+            
         elif op==5:
-            pass            
+            valor = controller.resumo_todas_despesas()
+            if valor:
+                print(f'Suas despesas somadas está no valor de R${valor}') 
+                 

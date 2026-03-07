@@ -1,12 +1,7 @@
 [
     {
         "id": 1,
-        "despesa": "Teclado",
-        "valor": 250.0
-    },
-    {
-        "id": 2,
-        "despesa": "Roupas",
-        "valor": 250.0
+        "despesa": "Monitor",
+        "valor": 450.0
     }
 ]
