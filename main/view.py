@@ -24,16 +24,20 @@ else:
             pass
 
         elif op==3:
-            try:
-                estado = controller.visualizar_despesas()
-                if estado==True:
+            if controller.visualizar_despesas():
+                try:
                     op = int(input('Digite o id da despesa que deseja remover\n'))
+                except:
+                    print("ID inválido!")
                 else:
-                    
-            except (KeyboardInterrupt,ValueError,IndexError):
-                print('Erro, id inválido')
+                    if controller.remover_despesa(op):
+                        print('Despesa removida com sucesso!')
+                    else:
+                        print('ID inválido')
             else:
-                print(controller.remover_despesa(op))
+                print('Sem despesas cadastradas!')
+            
+
         elif op==4:
             controller.visualizar_despesas()
     

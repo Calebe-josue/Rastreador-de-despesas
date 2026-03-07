@@ -28,16 +28,22 @@ def adicionar_despesa(descricao,valor):
 def visualizar_despesas():
     arquivo = arq.abrir_arquivo()
     if not arquivo:
-        print('Sem despesas cadastradas!')
         return False
-    for i in arquivo:
-        print(f"{i["id"]} - {i["despesa"]} = R${i["valor"]} ")
-    return True
+    else:
+        for i in arquivo:
+            print(f"{i["id"]} - {i["despesa"]} = R${i["valor"]} ")
+        return True
                         
 
 def remover_despesa(id):
     arquivo = arq.abrir_arquivo()
     if id>len(arquivo) or id<1:
-        return "Id inválido"
+        return False
     else:
-        pass
+        arquivo.pop(id-1)
+        for i,v in enumerate(arquivo,start=1):
+            v["id"]=i
+
+        arq.escrever_arq(arquivo)
+        return True
+
